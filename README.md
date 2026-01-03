@@ -1,0 +1,3 @@
+# minimalist-manicure-landing
+
+Initial repository setup for pr-poehali-dev/minimalist-manicure-landing
