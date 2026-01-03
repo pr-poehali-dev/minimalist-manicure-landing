@@ -65,29 +65,49 @@ const Index = () => {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-            <div className="space-y-8 animate-fade-in">
+          <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
+            {/* Левая колонка с примерами работ */}
+            <div className="hidden lg:flex lg:col-span-3 flex-col gap-6">
+              <div className="relative h-[280px] rounded-3xl overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://cdn.poehali.dev/projects/2271ee24-183b-4fb3-b69e-d733250e301b/files/85d2f335-7e3b-4011-be9b-ac6bed4a7ab4.jpg"
+                  alt="Работа 1"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+              <div className="relative h-[280px] rounded-3xl overflow-hidden shadow-2xl group">
+                <img 
+                  src={portfolio[1]}
+                  alt="Работа 2"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+            </div>
+
+            {/* Центральная колонка с контентом */}
+            <div className="lg:col-span-6 space-y-8 animate-fade-in text-center">
               <div className="inline-block">
                 <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-md">
                   <Icon name="Sparkles" size={16} className="text-[#D4AF37]" />
-                  Премиум услуги маникюра
+                  Премиум студия маникюра
                 </span>
               </div>
               
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-800 leading-tight">
-                Идеальный<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8B4B8] to-[#D4AF37]">
-                  маникюр
-                </span><br />
-                для вас
+              <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold text-gray-800 leading-tight">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8B4B8] via-[#D4AF37] to-[#F4C7AB]">
+                  Linnark
+                </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-700 max-w-lg leading-relaxed">
-                Профессиональный мастер с 5+ летним опытом в Екатеринбурге. 
-                Создаю красоту, которая подчеркивает вашу индивидуальность.
+              <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                Превращаем ваши ногти в произведение искусства. 
+                Премиальные материалы, авторские дизайны и безупречное качество. 
+                Каждый визит — это роскошный опыт заботы о себе.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-[#F4C7AB] to-[#E8B4B8] hover:shadow-2xl hover:scale-105 text-gray-800 font-semibold px-10 py-7 text-lg rounded-2xl shadow-xl transition-all duration-300"
@@ -108,7 +128,7 @@ const Index = () => {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 pt-8">
+              <div className="grid grid-cols-3 gap-6 pt-8 max-w-xl mx-auto">
                 {[
                   { number: '500+', label: 'Довольных клиентов' },
                   { number: '5+', label: 'Лет опыта' },
@@ -122,24 +142,27 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="relative lg:block hidden">
-              <div className="relative w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+            {/* Правая колонка с примерами работ */}
+            <div className="hidden lg:flex lg:col-span-3 flex-col gap-6">
+              <div className="relative h-[280px] rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
-                  src="https://cdn.poehali.dev/projects/2271ee24-183b-4fb3-b69e-d733250e301b/files/85d2f335-7e3b-4011-be9b-ac6bed4a7ab4.jpg"
-                  alt="Премиальный маникюр"
-                  className="w-full h-full object-cover"
+                  src={portfolio[2]}
+                  alt="Работа 3"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </div>
-              
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-2xl">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-xl flex items-center justify-center">
-                    <Icon name="Star" size={24} className="text-white fill-white" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-gray-800">4.9/5.0</div>
-                    <div className="text-sm text-gray-600">Рейтинг клиентов</div>
+              <div className="relative h-[280px] rounded-3xl overflow-hidden shadow-2xl group">
+                <img 
+                  src={portfolio[3]}
+                  alt="Работа 4"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Star" size={16} className="text-[#D4AF37] fill-[#D4AF37]" />
+                    <span className="text-sm font-bold text-gray-800">4.9/5.0</span>
                   </div>
                 </div>
               </div>
