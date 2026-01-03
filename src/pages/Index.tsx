@@ -56,7 +56,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-[#FFF8F5] to-white">
+    <div className="min-h-screen bg-gradient-to-br from-[#FFF5F0] via-[#FFE8E1] to-[#FFF5F0]">
       <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#FFF5F0] via-[#FFE8E1] to-[#F4C7AB]">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-64 h-64 bg-[#E8B4B8] rounded-full blur-3xl"></div>
@@ -152,80 +152,153 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">О мастере</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            5+ лет опыта работы с ногтями. Использую только премиальные материалы 
-            и придерживаюсь индивидуального подхода к каждому клиенту. 
-            Ваш комфорт и красота — моя главная цель.
-          </p>
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#E8B4B8] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#F4C7AB] rounded-full blur-3xl"></div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { icon: 'Award', text: '5+ лет опыта' },
-            { icon: 'Shield', text: 'Стерильность' },
-            { icon: 'Heart', text: 'Индивидуальный подход' }
-          ].map((item, i) => (
-            <Card key={i} className="border-none shadow-md hover-scale bg-white/80 backdrop-blur">
-              <CardContent className="pt-8 text-center">
-                <Icon name={item.icon} className="mx-auto mb-4 text-[#D4AF37]" size={40} />
-                <p className="text-lg font-medium text-gray-800">{item.text}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
 
-      <section className="bg-gradient-to-b from-white to-[#FFF8F5] py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center">Услуги</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, i) => (
-              <Card key={i} className="border-none shadow-lg hover-scale bg-white">
-                <CardHeader>
-                  <div className="mb-4">
-                    <Icon name={service.icon} className="text-[#F4C7AB]" size={48} />
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription className="text-2xl font-semibold text-[#D4AF37] mt-2">
-                    {service.price}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{service.description}</p>
-                </CardContent>
-              </Card>
+        <div className="relative max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-md">
+                <Icon name="User" size={16} className="text-[#D4AF37]" />
+                О мастере
+              </span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-8">Профессионал с душой</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+              5+ лет опыта работы с ногтями. Использую только премиальные материалы 
+              и придерживаюсь индивидуального подхода к каждому клиенту. 
+              Ваш комфорт и красота — моя главная цель.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: 'Award', title: '5+ лет опыта', desc: 'Постоянное обучение новым техникам' },
+              { icon: 'Shield', title: 'Стерильность', desc: 'Все инструменты проходят обработку' },
+              { icon: 'Heart', title: 'Индивидуальный подход', desc: 'Учитываю особенности ваших ногтей' }
+            ].map((item, i) => (
+              <div key={i} className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                <Card className="relative border-none shadow-2xl hover-scale bg-white/90 backdrop-blur-lg h-full">
+                  <CardContent className="pt-10 pb-8 text-center">
+                    <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-2xl flex items-center justify-center shadow-lg">
+                      <Icon name={item.icon} className="text-white" size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
+                    <p className="text-gray-600">{item.desc}</p>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center">Портфолио</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {portfolio.map((img, i) => (
-            <div 
-              key={i} 
-              className="relative aspect-square overflow-hidden rounded-2xl shadow-md hover-scale cursor-pointer"
-            >
-              <img 
-                src={img} 
-                alt={`Работа ${i + 1}`} 
-                className="w-full h-full object-cover"
-              />
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-40 left-40 w-[500px] h-[500px] bg-[#D4AF37] rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-20 right-40 w-96 h-96 bg-[#E8B4B8] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-md">
+                <Icon name="Sparkles" size={16} className="text-[#D4AF37]" />
+                Услуги
+              </span>
             </div>
-          ))}
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Что я предлагаю</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, i) => (
+              <div key={i} className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                <Card className="relative border-none shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-300 bg-white/90 backdrop-blur-lg h-full">
+                  <CardHeader>
+                    <div className="w-16 h-16 mb-4 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-2xl flex items-center justify-center shadow-lg">
+                      <Icon name={service.icon} className="text-white" size={32} />
+                    </div>
+                    <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
+                    <CardDescription className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E8B4B8] to-[#D4AF37] mt-3">
+                      {service.price}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="booking" className="bg-gradient-to-b from-[#FFF8F5] to-white py-20">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">Запись на приём</h2>
-          <p className="text-center text-gray-600 mb-12">Заполните форму, и я свяжусь с вами в ближайшее время</p>
+      <section id="portfolio" className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-1/3 w-96 h-96 bg-[#F4C7AB] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-[#D4AF37] rounded-full blur-[120px]"></div>
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-md">
+                <Icon name="Image" size={16} className="text-[#D4AF37]" />
+                Портфолио
+              </span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">Мои работы</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto">Каждый маникюр — произведение искусства</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {portfolio.map((img, i) => (
+              <div 
+                key={i} 
+                className="group relative aspect-square overflow-hidden rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-300 cursor-pointer"
+              >
+                <img 
+                  src={img} 
+                  alt={`Работа ${i + 1}`} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-lg font-semibold">Работа #{i + 1}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="booking" className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-20 w-96 h-96 bg-[#E8B4B8] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-20 w-96 h-96 bg-[#F4C7AB] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative max-w-2xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-md">
+                <Icon name="Calendar" size={16} className="text-[#D4AF37]" />
+                Запись
+              </span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Записаться на приём</h2>
+            <p className="text-xl text-gray-700">Заполните форму, и я свяжусь с вами в ближайшее время</p>
+          </div>
           
-          <Card className="border-none shadow-xl bg-white">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-3xl opacity-20 blur-2xl"></div>
+            <Card className="relative border-none shadow-2xl bg-white/90 backdrop-blur-lg">
             <CardContent className="pt-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
@@ -279,17 +352,19 @@ const Index = () => {
                 <Button 
                   type="submit"
                   size="lg"
-                  className="w-full bg-[#F4C7AB] hover:bg-[#E8B4B8] text-gray-800 font-medium py-6 rounded-full"
+                  className="w-full bg-gradient-to-r from-[#F4C7AB] to-[#E8B4B8] hover:shadow-2xl hover:scale-105 text-gray-800 font-semibold py-7 text-lg rounded-2xl shadow-xl transition-all duration-300"
                 >
+                  <Icon name="Send" size={20} className="mr-2" />
                   Отправить заявку
                 </Button>
               </form>
             </CardContent>
           </Card>
+          </div>
         </div>
       </section>
 
-      <footer className="bg-white border-t border-gray-100 py-12">
+      <footer className="relative bg-gradient-to-b from-transparent to-white/50 backdrop-blur-lg border-t border-white/20 py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
