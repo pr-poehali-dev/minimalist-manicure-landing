@@ -57,29 +57,98 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-[#FFF8F5] to-white">
-      <section 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(244, 199, 171, 0.3) 0%, rgba(232, 180, 184, 0.3) 100%), url('https://cdn.poehali.dev/projects/2271ee24-183b-4fb3-b69e-d733250e301b/files/bdf83f86-597d-4732-ba8e-57ed88724aba.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-        <div className="relative z-10 text-center px-4 py-20 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6 tracking-tight">
-            Идеальный маникюр<br />для вас
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 font-light">
-            Профессиональный мастер в Екатеринбурге
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-[#F4C7AB] hover:bg-[#E8B4B8] text-gray-800 font-medium px-10 py-6 text-lg rounded-full shadow-lg hover-scale"
-            onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Записаться на приём
-          </Button>
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#FFF5F0] via-[#FFE8E1] to-[#F4C7AB]">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#E8B4B8] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F4C7AB] rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37] rounded-full blur-[120px]"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
+            <div className="space-y-8 animate-fade-in">
+              <div className="inline-block">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 shadow-md">
+                  <Icon name="Sparkles" size={16} className="text-[#D4AF37]" />
+                  Премиум услуги маникюра
+                </span>
+              </div>
+              
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-800 leading-tight">
+                Идеальный<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8B4B8] to-[#D4AF37]">
+                  маникюр
+                </span><br />
+                для вас
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-700 max-w-lg leading-relaxed">
+                Профессиональный мастер с 5+ летним опытом в Екатеринбурге. 
+                Создаю красоту, которая подчеркивает вашу индивидуальность.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-[#F4C7AB] to-[#E8B4B8] hover:shadow-2xl hover:scale-105 text-gray-800 font-semibold px-10 py-7 text-lg rounded-2xl shadow-xl transition-all duration-300"
+                  onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <Icon name="Calendar" size={20} className="mr-2" />
+                  Записаться на приём
+                </Button>
+                
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-2 border-gray-800 hover:bg-gray-800 hover:text-white font-semibold px-10 py-7 text-lg rounded-2xl transition-all duration-300"
+                  onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  <Icon name="Image" size={20} className="mr-2" />
+                  Портфолио
+                </Button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 pt-8">
+                {[
+                  { number: '500+', label: 'Довольных клиентов' },
+                  { number: '5+', label: 'Лет опыта' },
+                  { number: '100%', label: 'Качество' }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-3xl md:text-4xl font-bold text-gray-800">{stat.number}</div>
+                    <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative lg:block hidden">
+              <div className="relative w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://cdn.poehali.dev/projects/2271ee24-183b-4fb3-b69e-d733250e301b/files/85d2f335-7e3b-4011-be9b-ac6bed4a7ab4.jpg"
+                  alt="Премиальный маникюр"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              
+              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-2xl">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#F4C7AB] to-[#E8B4B8] rounded-xl flex items-center justify-center">
+                    <Icon name="Star" size={24} className="text-white fill-white" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-800">4.9/5.0</div>
+                    <div className="text-sm text-gray-600">Рейтинг клиентов</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <Icon name="ChevronDown" size={32} className="text-gray-400" />
         </div>
       </section>
 
@@ -133,7 +202,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 max-w-6xl mx-auto px-4">
+      <section id="portfolio" className="py-20 max-w-6xl mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center">Портфолио</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {portfolio.map((img, i) => (
